@@ -9,7 +9,7 @@ jobs:
       - name: create-artifact
         run: |
           echo "This is an artifact file created and stored as this content!" >> artifact.txt
-          echo "Generated this artifact at $date" >> artifact.txt
+          echo "Generated this artifact at {$date}" >> artifact.txt
 
       - name: upload-artifact
         uses: actions/upload-artifact@v7
