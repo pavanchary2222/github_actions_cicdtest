@@ -29,4 +29,5 @@ jobs:
           path: artifact.txt
         
       - name: cat artifact file
-        run: ls -alrth artifact.txt && unzip artifact.txt.zip && cat artifact.txt
+        run: | 
+          cat artifact.txt
