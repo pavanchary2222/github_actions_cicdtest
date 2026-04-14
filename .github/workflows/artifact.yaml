@@ -30,4 +30,4 @@ jobs:
         
       - name: cat artifact file
         run: | 
-          cat /home/runner/work/github_actions_cicdtest/github_actions_cicdtest/artifact.txt
+          cat artifact.txt
