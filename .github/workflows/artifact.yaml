@@ -23,10 +23,10 @@ jobs:
     needs: artifact-producer
     steps: 
       - name: download-artifact
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: artifact.txt
           path: artifact.txt
         
       - name: cat artifact file
-        run: cat artifact.txt
+        run: ls -alrth artifact.txt && unzip artifact.txt.zip && cat artifact.txt
