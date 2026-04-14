@@ -19,7 +19,7 @@ jobs:
           echo "foo=${foo}" >> "$GITHUB_OUTPUT"
 
           #2foo output to Env
-          echo "FOO=${foo}" >> " "$GITHUB_ENV"
+          echo "FOO=${foo}" >> "$GITHUB_ENV"
       
       - name: Access variables Generated above
         run: |
