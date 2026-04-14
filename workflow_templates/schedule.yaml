@@ -1,0 +1,10 @@
+name: schedule-cron
+on:
+  schedule:
+    - cron: '*/2 * * * *'
+jobs:
+  schedule-helloworld:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo run time
+        run: echo "Running in ubuntu latest for every 2 minutes and printing $(date)"

@@ -1,0 +1,36 @@
+name: variables_test_workflow
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  
+  producer:
+    runs-on: ubuntu-24.04
+    outputs:
+      foo: ${{ steps.step1-generated-foo.outputs.foo }}
+    steps:
+      - name: Generate and export foo variable
+        id: step1-generated-foo
+        run: |
+          foo=bar
+          #1foo ouput {for job output}
+          echo "foo=${foo}" >> "$GITHUB_OUTPUT"
+
+          #2foo output to Env
+          echo "FOO=${foo}" >> " "$GITHUB_ENV"
+      
+      - name: Access variables Generated above
+        run: |
+          echo "foo (step ouput): ${{steps.step1-generated-foo.outputs.foo}}"
+          echo "FOO (env output in github_env using ): $FOO"
+
+  consumer:
+    runs-on: ubuntu-24.04
+    needs: producer
+    steps:
+      - name: Inspect values inside consumer (note foo is unset)
+        run: |
+          echo "Value from producer: ${{needs.producer.outputs.foo}}"
+          echo "FOO in consumer: ${FOO:<unset>}"
