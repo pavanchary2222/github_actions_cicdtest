@@ -12,7 +12,7 @@ jobs:
           echo "Generated this artifact at $date" >> artifact.txt
 
       - name: upload-artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact
         with: 
           name: artifact.txt
           path: artifact.txt
@@ -23,7 +23,7 @@ jobs:
     needs: artifact-producer
     steps: 
       - name: download-artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact
         with:
           name: artifact.txt
           path: artifact.txt
