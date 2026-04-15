@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - id: composite-action-instance
-        uses: ./composite-action
+        uses: ./workflow_templates/composite-action
         with:
           who-to-greet: "from composite action in hello-world-1"
       - env:
@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - id: composite-action-instance1
-        uses: ./composite-action
+        uses: ./workflow_templates/composite-action
         with:
           who-to-greet: "from composite action in hello-world-1"
       - env:
