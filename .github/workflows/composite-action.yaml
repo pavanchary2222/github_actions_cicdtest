@@ -1,0 +1,31 @@
+name: Composite Action Demo
+on:
+  workflow_dispatch
+
+jobs:
+  hello-world-1:
+    runs-on: ubuntu-24.04
+    name: One usage of the composite action
+    steps:
+      - uses: action/checkout@v7
+      - id: composite-action-instance
+        uses: ./composite-action
+        with:
+          who-to-greet: "from composite action in hello-world-1"
+      - env:
+          RANDOM_NUMBER: ${{steps.composite-action-instance.outputs.random-number-generator}}
+        run: echo random-number "$RANDOM_NUMBER"
+        shell: bash
+  hello-world-2:
+    runs-on: ubuntu-24.04
+    name: Second Usage of the composition action
+    steps:
+      - uses: actions/checkout@v7
+      - id: composite-action-instance1
+        uses: ./composite-action
+        with:
+          who-to-greet: "from composite action in hello-world-1"
+      - env:
+          RANDOM_NUMBER: ${{steps.composite-action-instance1.outputs.random-number-generator}}
+        run: echo random-number "$RANDOM_NUMBER"
+        shell: bash
