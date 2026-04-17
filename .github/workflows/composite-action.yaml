@@ -14,7 +14,8 @@ jobs:
           who-to-greet: "from composite action in hello-world-1"
       - env:
           RANDOM_NUMBER: ${{steps.composite-action-instance.outputs.random-number-generator}}
-        run: echo random-number "$RANDOM_NUMBER"
+        run: |
+          echo "random-number: $RANDOM_NUMBER"
         shell: bash
   hello-world-2:
     runs-on: ubuntu-24.04
@@ -27,5 +28,6 @@ jobs:
           who-to-greet: "from composite action in hello-world-2"
       - env:
           RANDOM_NUMBER: ${{steps.composite-action-instance1.outputs.random-number-generator}}
-        run: echo random-number "$RANDOM_NUMBER"
+        run: |
+          echo "random-number: $RANDOM_NUMBER"
         shell: bash
