@@ -27,9 +27,8 @@ jobs:
 
       #step2 runs for every combo except 2c
       - name: run all except 2c
-        run: |
-          if: ${{! (matrix.number == 2 && matrix.letter == 'c')}}
-          run: echo "This step runs for ${{matrix.number}}${{matrix.letter}}"
+        if: ${{! (matrix.number == 2 && matrix.letter == 'c')}}
+        run: echo "This step runs for ${{matrix.number}}${{matrix.letter}}"
   sleep-job:
     runs-on: ubuntu-24.04
     steps:
