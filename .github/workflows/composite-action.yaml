@@ -1,6 +1,6 @@
 name: Composite Action Demo
 on:
-  workflow_dispatch
+  workflow_dispatch:
 
 jobs:
   hello-world-1:
