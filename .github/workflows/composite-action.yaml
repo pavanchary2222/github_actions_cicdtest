@@ -24,7 +24,7 @@ jobs:
       - id: composite-action-instance1
         uses: ./workflow_templates/composite-action
         with:
-          who-to-greet: "from composite action in hello-world-1"
+          who-to-greet: "from composite action in hello-world-2"
       - env:
           RANDOM_NUMBER: ${{steps.composite-action-instance1.outputs.random-number-generator}}
         run: echo random-number "$RANDOM_NUMBER"
