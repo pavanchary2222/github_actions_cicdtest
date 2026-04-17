@@ -1,6 +1,6 @@
 name: matrix-conditional-workflow
 on: 
-    workflow_dispatch:
+    workflow_dispatch
 
 concurrency:
     group: ${{github.workflow}}-${{github.ref}}

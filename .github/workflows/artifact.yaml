@@ -1,6 +1,6 @@
 name: artifacts
 on:
-  workflow_dispatch:
+  workflow_dispatch
 jobs:
   artifact-producer:
     name: producer-artifact
